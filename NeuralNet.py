@@ -12,7 +12,7 @@ def softmax(A):
 
 class NeuralNet:
 	def __init__(self, inputSize = 6, weights1 = np.array([]), weights2 = np.array([]), \
-				weights3 = np.array([]), NpL1 = 9, NpL2 = 9, outN = 3):
+				weights3 = np.array([]), NpL1 = 20, NpL2 = 20, outN = 3):
 		#NpL: Neurons per layer
 		#outN: Number of classes for the output
 		self.inputSize = inputSize

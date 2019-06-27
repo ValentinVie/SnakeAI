@@ -7,7 +7,6 @@ from NeuralNet import NeuralNet
 
 #---------------- Genetic Algorithm
 
-
 def evaluate(newGen, meanOn, Q):
 	rewards = []
 	N = len(newGen)
@@ -59,7 +58,7 @@ def geneticAlgorithm(NNsave, N, generation, meanOn = 5, keepBest = 0.1, mutate =
 	#NNsave: Dictionnary with all the different generations.
 	#N: Number of NN kept in a list each iteration.
 	#generation: The number of generation our system will have.
-	#meanOn: Run the NN on meanOn # of games.
+	#meanOn: Run the NN on meanOn # of games. We then take the average reward found
 	#keepBest: % of NN we don't modify and keep for future gen.
 	#mutate: % of NN where we mutate 1-2 parameters.
 	#merge: % of NN we merge together.

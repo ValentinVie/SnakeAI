@@ -11,10 +11,6 @@ import numpy as np
 def distance(x, y):
 	return np.linalg.norm(np.array(x)-np.array(y))
 
-def mean(L):
-	return sum(L)/len(L)
-
-
 #---------------- SnakeGame
 class SnakeGame:
 	SPEED = 600
@@ -33,14 +29,14 @@ class SnakeGame:
 		self.score = 0
 		self.reward = 0
 		if trainingGame: 
-			# It is a training game we only train over 10 games.
+			# It is a training game we only train over 100 different games.
 			#A game is a unique succession of food placement.
-			#We basically bias the random number generator to only have 10 sequences
+			#We basically bias the random number generator to only have 100 sequences
 			self.randgen = rd.Random(rd.randint(0,100))
 		else: 
 			#The game has not been seen before. The random number 
 			#generator generate a sequence of food placement never seen before.
-			self.randgen = rd.Random(rd.randint(10,10000))
+			self.randgen = rd.Random(rd.randint(100,10000))
 
 		self.chooseFoodPosition()		
 
@@ -215,7 +211,8 @@ class SnakeGame:
 						speedUp = True
 					time.sleep(SnakeGame.SPEEDNN/1000)
 
-				gameOn = self.nextMoveUpdate(model.feedforward(self.createInputNN()))
+				inputNN = self.createInputNN()
+				gameOn = self.nextMoveUpdate(model.feedforward(inputNN))
 
 				if not gameOn:
 					break
