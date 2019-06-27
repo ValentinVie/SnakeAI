@@ -1,23 +1,23 @@
 # SnakeAI
 
 ## What is this?
-A neural network (NN) trained with a genetic algorithm to play the game 'Snake'.
+A neural network (NN) trained with a genetic algorithm to play the game *Snake*.
 
-The NN has to choose between three actions at every step during the game: `'STRAIGH'` (go straight), `'RIGHT'` and `'LEFT'`. If the snake controled by the NN hit a wall or bite its tail, the game is over.
+The NN has to choose between three actions at every step during the game: `'STRAIGH'` (go straight), `'RIGHT'` and `'LEFT'`. When the snake hit a wall or bite its tail, the game is over.
 
 
 ## Structure
-The project is divided into four segments:
-- The Snake game in `SnakeGame.py`. It contains the game mechanics and the UI.
-- The Neural Network settings in `NeuralNet.py`.
+The project is divided into four files:
+- The Snake game is in `SnakeGame.py`. It contains the game mechanics and the UI.
+- The Neural Network settings are in `NeuralNet.py`.
 - The optimization process using a genetic algorithm is located in `GeneticAlg.py`.
 - Finally the data analysis and results are processed and compiled in `Analysis.py`.
 
 ## The Snake Game
 
-There are two kinds of snake games: training games and testing games. For training games, we bias the random number generator controling the position of the food. There are only 100 snake games the NN can play because only 100 sequences of food placement are allowed. 
+There are two kinds of snake games: training games and testing games. For training games, we bias the random number generator controling the position of the food. Each RNG will provide a different game depending on the seed. During the training, we only allow 100 seeds. Then, there are only 100 snake games the NN can play because only 100 sequences of food placement are allowed. 
 
-When testing we change that bias and the NN has to perform on previously unseen games.
+When testing we change the seeds and the NN has to perform on previously unseen games.
 
 See in `SnakeGame.py`:
 ```python
@@ -64,7 +64,7 @@ G.hummanPlay()
 
 The neural network receives an input of dimension 6 and has to output a vector of dimension 3. The highest component of the output decides the decision that is made.
 
-The NN contains two hidden layers of each 20 neurons. These parameter are decided empirically and according to the processing power I had available.
+The NN contains two hidden layers of each 20 neurons. These parameters are decided empirically and according to the processing power I had available.
 
 <p align="center">
 	<img src="./NN.png" />
